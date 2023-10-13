@@ -30,7 +30,7 @@ export async function loader({ request }) {
     post = {
       title   : posts[0].title.rendered,
       content : posts[0].content.rendered,
-      image   : 'url(' + media.media_details.sizes.medium_large.source_url +')'
+      image   : 'url(' + media.media_details.sizes.medium.source_url +')'
     };
   }
 
