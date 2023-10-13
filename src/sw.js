@@ -4,6 +4,7 @@ import { registerRoute } from 'workbox-routing'
 import { StaleWhileRevalidate } from 'workbox-strategies'
 import { ExpirationPlugin } from 'workbox-expiration'
 import { CacheableResponsePlugin } from 'workbox-cacheable-response'
+import { baseName } from 'ba-api'
 
 self.skipWaiting()
 clientsClaim()
@@ -14,7 +15,8 @@ precacheAndRoute(self.__WB_MANIFEST)
 
 registerRoute(
 //  new RegExp( '\/' + import.meta.env.VITE_WORDPRESS_SITE + '\/wp-json\/wp\/v2'),
-  new RegExp( '/' + import.meta.env.VITE_WORDPRESS_SITE + '/wp-json/wp/v2'),
+//  new RegExp( '/' + import.meta.env.VITE_WORDPRESS_SITE + '/wp-json/wp/v2'),
+  new RegExp( baseName + '/wp-json/wp/v2'),
   new StaleWhileRevalidate({
     cacheName: "wp-json",
     plugins: [
