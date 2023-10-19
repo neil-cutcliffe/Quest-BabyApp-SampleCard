@@ -13,7 +13,7 @@
  **********************************************************************/
 
 import React from 'react';
-import { Tooltip, Button } from '@mui/material';
+import { Tooltip } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { animated, useSpring, easings } from 'react-spring';
 import useSampleCard from 'src/components/SampleCard/useSampleCard';
@@ -72,136 +72,6 @@ const Image1 = animated(
   }))
 );
 
-const Content = styled('div')({
-  borderRadius: `0px`,
-  display: `flex`,
-  position: `relative`,
-  isolation: `isolate`,
-  flexDirection: `column`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `10px 20px 35px 20px`,
-  boxSizing: `border-box`,
-  alignSelf: `stretch`,
-  margin: `0px`,
-});
-
-const Details = styled('div')({
-  borderRadius: `0px`,
-  display: `flex`,
-  position: `relative`,
-  isolation: `isolate`,
-  flexDirection: `column`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  alignSelf: `stretch`,
-  margin: `0px`,
-});
-
-const TitleTop = styled('div')({
-  borderRadius: `0px`,
-  display: `flex`,
-  position: `relative`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `space-between`,
-  alignItems: `center`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-  alignSelf: `stretch`,
-  margin: `0px`,
-});
-
-const Title = animated(
-  styled('div')(({ theme }) => ({
-    textAlign: `left`,
-    whiteSpace: `pre-wrap`,
-    fontSynthesis: `none`,
-    color: theme.palette['Text']['Primary'],
-    fontStyle: `normal`,
-    fontFamily: `Heebo`,
-    fontWeight: `700`,
-    fontSize: `38px`,
-    letterSpacing: `0px`,
-    textDecoration: `underline`,
-    textTransform: `none`,
-    margin: `0px`,
-  }))
-);
-
-const Q3Dots = animated(
-  styled('div')({
-    display: `flex`,
-    position: `relative`,
-    isolation: `isolate`,
-    flexDirection: `row`,
-    justifyContent: `flex-start`,
-    alignItems: `flex-start`,
-    padding: `0px`,
-    boxSizing: `border-box`,
-    width: `4px`,
-    height: `20px`,
-    margin: `0px`,
-  })
-);
-
-const Rectangle1 = styled('div')(({ theme }) => ({
-  backgroundColor: theme.palette['Text']['Primary'],
-  borderRadius: `10px`,
-  width: `4px`,
-  height: `4px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-}));
-
-const Rectangle2 = styled('div')(({ theme }) => ({
-  backgroundColor: theme.palette['Text']['Primary'],
-  borderRadius: `10px`,
-  width: `4px`,
-  height: `4px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `8px`,
-}));
-
-const Rectangle3 = styled('div')(({ theme }) => ({
-  backgroundColor: theme.palette['Text']['Primary'],
-  borderRadius: `10px`,
-  width: `4px`,
-  height: `4px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `16px`,
-}));
-
-const Details1 = animated(
-  styled('div')(({ theme }) => ({
-    textAlign: `left`,
-    whiteSpace: `pre-wrap`,
-    fontSynthesis: `none`,
-    color: theme.palette['Text']['Primary'],
-    fontStyle: `normal`,
-    fontFamily: `Heebo`,
-    fontWeight: `400`,
-    fontSize: `16px`,
-    letterSpacing: `0.15000000596046448px`,
-    textDecoration: `none`,
-    lineHeight: `150%`,
-    textTransform: `none`,
-    alignSelf: `stretch`,
-    margin: `12px 0px 0px 0px`,
-  }))
-);
-
-const ButtonContained = animated(
-  styled(Button)({
-    margin: `12px 0px 0px 0px`,
-  })
-);
-
 function SampleCard(props) {
   const { fns } = useSampleCard(props);
 
@@ -223,67 +93,11 @@ function SampleCard(props) {
     from: { transform: 'scale(0.9)', opacity: 0 },
   }));
 
-  const [TitleSpring, TitleApi] = useSpring(() => ({
-    config: {
-      duration: 500,
-      easing: easings['easeInOutExpo'],
-    },
-    delay: 1250,
-    from: { transform: 'translateX(25px)', opacity: 0 },
-  }));
-
-  const [Q3DotsSpring, Q3DotsApi] = useSpring(() => ({
-    config: {
-      duration: 500,
-      easing: easings['easeOutExpo'],
-    },
-    delay: 1250,
-    from: { opacity: 0 },
-  }));
-
-  const [Details1Spring, Details1Api] = useSpring(() => ({
-    config: {
-      duration: 500,
-      easing: easings['easeInOutExpo'],
-    },
-    delay: 1500,
-    from: { transform: 'translateY(15px)', opacity: 0 },
-  }));
-
-  const [ButtonContainedSpring, ButtonContainedApi] = useSpring(() => ({
-    config: {
-      duration: 500,
-      easing: easings['easeInOutExpo'],
-    },
-    delay: 1750,
-    from: { transform: 'translateY(15px)', opacity: 0 },
-  }));
-
   React.useEffect(() => {
     Image1Api.start({
       ...{ transform: 'scale(1)', opacity: 1 },
       delay: 1000,
       config: { duration: 750 },
-    });
-    TitleApi.start({
-      ...{ transform: 'translateX(0px)', opacity: 1 },
-      delay: 1250,
-      config: { duration: 500 },
-    });
-    Q3DotsApi.start({
-      ...{ opacity: 1 },
-      delay: 1250,
-      config: { duration: 500 },
-    });
-    Details1Api.start({
-      ...{ transform: 'translateY(0px)', opacity: 1 },
-      delay: 1500,
-      config: { duration: 500 },
-    });
-    ButtonContainedApi.start({
-      ...{ transform: 'translateY(0px)', opacity: 1 },
-      delay: 1750,
-      config: { duration: 500 },
     });
   }, []);
 
@@ -298,36 +112,20 @@ function SampleCard(props) {
       className={props.className}
       style={{ ...TypeQuestSpring }}
     >
-      <ImageFrame>
-        <Tooltip arrow={true} placement={'top'} title={'This is an Image'}>
-          <Image1 props={props} style={{ ...Image1Spring }}></Image1>
-        </Tooltip>
-      </ImageFrame>
-      <Content>
-        <Details>
-          <TitleTop>
-            <Title style={{ ...TitleSpring }}>{props.post.title}</Title>
-            <Q3Dots style={{ ...Q3DotsSpring }}>
-              <Rectangle1></Rectangle1>
-              <Rectangle2></Rectangle2>
-              <Rectangle3></Rectangle3>
-            </Q3Dots>
-          </TitleTop>
-          <Details1 style={{ ...Details1Spring }}>
-            {props.post.content}
-          </Details1>
-          <ButtonContained
-            variant="contained"
-            size="large"
-            color="primary"
-            onClick={fns.handleButtonClick}
-            style={{ ...ButtonContainedSpring }}
-          >
-            {' '}
-            BOOK ME{' '}
-          </ButtonContained>
-        </Details>
-      </Content>
+      {props.posts &&
+        props.posts.map((post, index) => {
+          return (
+            <ImageFrame key={index}>
+              <Tooltip
+                arrow={true}
+                placement={'top'}
+                title={'This is an Image'}
+              >
+                <Image1 props={props} style={{ ...Image1Spring }}></Image1>
+              </Tooltip>
+            </ImageFrame>
+          );
+        })}
     </TypeQuest>
   );
 }
